@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.boxheading {
+  font-size: 24px;
+  margin-top: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.box {
+  width: 70%;
+  margin-left: auto;
+  margin-bottom: 30px;
+  margin-right: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid rgba(0, 47, 52, 0.2);
+  border-radius: 4px;
+}
+.categoryhead {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.inputboxes {
+  margin-left: 30px;
+}
+.inputboxes label {
+  margin-bottom: 2px;
+  font-size: 14.8px;
+}
+.inputboxes input {
+  padding: 12px 20px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 16px;
+  height: 48px;
+  color: #002f34;
+}
+
+.inputboxes select {
+  width: 50%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 16px;
+  height: 48px;
+  color: #002f34;
+  margin-bottom: 30px;
+}
+.inputboxes small {
+  color: rgba(0, 47, 52, 0.64);
+  font-size: 12px;
+}
+
+.pricehead {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.priceinput {
+  border: none;
+  background-color: transparent;
+  width: 96%;
+}
+.customborder{
+  border: 1px solid #8e8e8e;
+  border-radius: 4px;  
+  width: 50%;
+  outline: none;
+  font-size: 16px;
+  height: 48px;
+  color: #002f34;
+}
+.lineprice{
+  border-right: 1px solid rgba(0,47,52,.36);  
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.submitbutton{
+  color: #fff;
+  background-color: #002f34;
+  border-radius: 4px;
+  border: 5px solid #002f34;
+  padding: 5px 7px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.cancelbutton{
+  color: #fff;
+  background-color: #ec413b;
+  border-radius: 4px;
+  border: 5px solid #ec413b;
+  padding: 5px 7px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.photo{
+  border-color: #002f34;
+  border: 2px solid ;
+  box-sizing: border-box;
+  height: 104px;
+  width: 104px;
+  cursor: pointer;
+}
+.photo2{
+  display: inline-flex;
+  border-style: none;
+  background: none;
+  margin-left:28px;
+  margin-top: 20px;
+}
+
+.photo3{
+  color: #002f34;
+  font-size: 14px;
+  text-align: center;
+  margin-top: -5px;
+}
+@media only screen and (max-width: 700px) {
+  .box {
+    width: 100%;
+  }
+}

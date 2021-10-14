@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+  font-family: 'Roboto', sans-serif;
+ color: #084b52;
+}
+.moreView {
+  margin: 16px 16px 24px;
+  padding: 16px 16px 32px;
+  background-color: #ebeeef;
+  border-radius: 4px;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+.heading :first-child {
+  font-size: 24px;
+  color: #002f34;
+}
+.headingfresh{
+  font-size: 24px;
+  color: #002f34;
+}
+.heading :last-child {
+  color: #002f34;
+  border-bottom: 2px solid #002f34;
+  font-weight: 700;
+  font-size:14.5px ;
+}
+
+.heading :hover {
+  border-bottom: 2px solid #ebeeef;
+  margin-bottom: -2px;
+  cursor: pointer;
+}
+.recommendations .cards {
+  display: block;
+  align-items: center;
+  margin-top:10px ;
+  width: 100%;
+}
+
+.moreView .cards {
+ white-space: nowrap;
+ overflow-x: hidden;
+ overflow-y: hidden;
+ width: auto;
+}
+
+.card {
+  margin-top: 30px;
+  margin-right: 30px;
+  padding: 13px;
+  width: 266px;
+  height: 270px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.card .favorite {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.card .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .image img {
+  height: 100px;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  text-align: center;
+}
+.card .content .rate {
+  margin-top: 10px;
+  margin-bottom: 1px;
+  font-size: larger;
+  font-weight: bold;
+}
+.card .content .kilometer {
+  font-size: medium;
+}
+.card .content .name {
+  font-size: small;
+  margin-top: 7px;
+}
+.card .date {
+  display: flex;
+  justify-content: flex-end;
+  font-size: small;
+  margin-top: -20px;
+}
+
+.card .place {
+  font-size: 12px;
+  color: grey;
+}
+
+.recommendations {
+  margin: 16px 40px 24px;
+}
+
+.recommendations .heading span {
+  font-size: 24px;
+  color: #002f34;
+}
+

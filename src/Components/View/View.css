@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+  font-family: 'Roboto', sans-serif;
+ color: #084b52;
+}
+.divide{
+width:100%;
+}
+.picture{
+  margin-top: 20px;
+
+  width: 66.6666666667%;
+  float:left;
+  padding: 5px;
+  border: 5px solid transparent;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+
+.picture2{
+  background-color: #fff;
+  margin-top: 90px;
+  outline: none;
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid rgba(0,47,52,.2);
+  border-radius: 4px;
+}
+.picture4{
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0,47,52,.36);
+}
+
+
+.picture5{
+  height: auto;
+  max-height: 480px;
+  background-color: #000;
+}
+.Descriptionbox{
+  margin-top: 10px;
+  border-radius: 0 0 3px 3px;
+}
+.Descriptionbox1{
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid rgba(0,47,52,.2);
+  border-radius: 4px;
+  position: relative;
+}
+.Descriptionbox2{
+  padding: 16px;
+}
+.Descriptionbox h3{
+  margin: 0;
+  font-weight: 700;
+  font-size: 20px;
+  color: #002f34;
+}
+.Descriptionbox3{
+  margin: 16px 0;
+  position: relative;
+}
+.Descriptionbox4{
+  display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Descriptionbox5{
+  flex-basis: 50%;  
+}
+.Descriptionbox6{
+  display: flex;
+  margin-bottom: 8px;
+  width: 100%;
+  justify-content: space-between;
+}
+.Brand{
+  max-width: 50%;
+  color: rgba(0,47,52,.64);
+}
+.Brandname{
+  flex-basis: 50%;
+    text-align: left;
+    color: #002f34;
+}
+.Descriptionbox2 p{
+  margin-top: 16px;
+}
+.productbox{
+  margin-top:110px;
+  width: 33.3333333333%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  padding: 5px;
+  border: 5px solid transparent;
+  float: left;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+.productbox1{
+  position: relative;
+  margin-bottom: 8px;
+  overflow: visible;
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0,47,52,.2);
+  border-radius: 4px;
+}
+.productbox2{
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(0,47,52,.36);
+    padding-top: 16px;
+}
+.productbox3{
+  padding: 10px;
+  padding-left: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0,47,52,.36);
+}
+.productbox4{
+  direction: ltr;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #002f34;
+  font-size: 34px;
+  line-height: 32px;
+}
+.productbox5{
+  font-weight: 400;
+    margin-top: 10px;
+    font-size: 16px;
+    color: rgba(1, 23, 26, 0.64);
+    line-height: 24px;
+    word-break: break-word;
+}
+.productbox6{
+  display: flex;
+  margin-top: 24px;
+  justify-content: space-between;
+}
+.productbox7{
+  max-width: 70%;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: grey;
+
+}
+
+.sellerbox{
+  margin-top:10px;
+  width: 33.3333333333%;
+  margin-left: auto;
+  left: auto;
+  right: auto;
+  padding: 5px;
+  border: 5px solid transparent;
+  float: left;
+  min-height: 1px;
+  box-sizing: border-box;
+}
+.sellerbox1{
+  position: relative;
+  margin-bottom: 8px;
+  overflow: visible;
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0,47,52,.2);
+  border-radius: 4px;
+}
+.sellerbox2{
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(0,47,52,.36);
+    padding-top: 16px;
+}
+.sellerbox3{
+  padding: 10px;
+  padding-left: 20px;
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba(0,47,52,.36);
+}
+.sellerbox4{
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #002f34;
+  font-weight: 400;
+  padding: 0;
+}
+.profilecard{
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  margin: 8px 0;
+  cursor: pointer;
+}
+.profilecard1{
+  flex-basis: 100%;
+  margin: 0 0 0 12px;
+  position: relative;
+  overflow: hidden;
+}
+.profilecard2{
+  font-size: 16px;
+  color: #002f34;
+  display: block;
+  padding-right: 16px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+.profilecard3{
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  position: absolute;
+}
+.profilecard4{
+  font-size: 12px;
+  line-height: 18px;
+}
+.chatbutton{
+    background-color: #002f34;
+    border-radius: 4px;
+    border: 5px solid #002f34;
+   font-weight: 600;
+  width: 100%;
+   height: 40px;
+}
+.chatbutton span{
+  color: #fff;
+}
+.chatbutton1{
+  background-color: #002f34;
+  border-radius: 4px;
+  border: 5px solid #002f34;
+  margin-top: 17px;
+  margin-bottom: 25px;
+ font-weight: 600;
+width: 100%;
+ height: 40px;
+}
+.chatbutton1 span{
+color: #fff;
+}
+
+@media only screen and (max-width: 700px) {
+  .picture{
+    width: fit-content;
+    margin-left: -11px;
+  }
+  .productbox{
+    margin-top:10px;
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    padding: 5px;
+    border: 5px solid transparent;
+    float: left;
+    min-height: 1px;
+    box-sizing: border-box;
+  }
+  .sellerbox{
+    margin-top:10px;
+    width: 100%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+    padding: 5px;
+    border: 5px solid transparent;
+    float: left;
+    min-height: 1px;
+    box-sizing: border-box;
+  }
+}
+
+

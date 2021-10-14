@@ -1,0 +1,121 @@
+.parentdivv {
+  display: flex;
+  margin-top: 90px;
+}
+.parentpeople {
+  margin-left: 10px;
+  width: 35%;
+}
+.peoplehead {
+  display: flex;
+  padding-top: 15.5px;
+  padding-bottom: 15.5px;
+  position: relative;
+  border: 1px solid rgba(0, 47, 52, 0.2);
+  border-radius: 7px 0 0 0;
+  box-sizing: border-box;
+  color: #002f34;
+  background-color: #ebeeef;
+}
+.inbox {
+  font-weight: 700;
+  font-size: 24px;
+  margin-top: 5px;
+  width: 80%;
+  margin-left: 20px;
+}
+
+.search {
+  margin-top: 8px;
+}
+.people {
+  border: 1px solid rgba(0, 47, 52, 0.2);
+  padding-bottom: 20px;
+  min-height: 71vh;
+}
+
+.chatperson {
+  background-color: #ebeeef;
+  padding: 20px;
+  margin-top: 10px;
+  display: flex;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 47, 52, 0.2);
+  border-top: 0.1px solid rgba(0, 47, 52, 0.2);
+}
+.imagee {
+  width: 13%;
+}
+.image1 {
+  border-radius: 12%;
+  width: 40px;
+  height: 40px;
+}
+.chatdetails {
+  width: 67%;
+  color: #002f34;
+}
+.name {
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: -2px;
+}
+.adtitle {
+  font-size: 14px;
+}
+.lastmessage {
+  font-size: 13px;
+  color: grey;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 80%;
+}
+
+.day {
+  font-size: 14px;
+  color: rgb(123, 123, 123);
+}
+.moreicon {
+  margin-top: 10px;
+  position: fixed;
+  margin-left: 40px;
+}
+.chatbox {
+  border: 1.5px solid rgba(0, 47, 52, 0.2);
+  min-width: 63.8%;
+}
+.chatboximg {
+  height: 140px;
+}
+.chatbox1 {
+  position: relative;
+  top: 30%;
+}
+.chatboxhead{
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 47, 52, 0.2);
+  color: #002f34;
+}
+.imagechatboxhead{
+  margin: 5px 0px 5px  20px;
+  border-radius: 5%;
+  width: 50px;
+  height: 50px;
+}
+.chatboxname{
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.message{
+  position: fixed;
+  bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 63.8%;
+}
