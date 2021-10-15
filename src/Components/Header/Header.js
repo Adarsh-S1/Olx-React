@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import "./Header.css";
 import OlxLogo from "../../assets/OlxLogo";
@@ -19,6 +19,7 @@ function Header() {
   const [showError, setShowerror] = useState("");
   const [showsignupError, setShowsignuperror] = useState("");
   const [username, setUsername] = useState("");
+  const [notifications, setNotifications] = useState([]);
   const [emailsignup, setEmailsignup] = useState("");
   const [phone, setPhone] = useState("");
   const [passwordsignup, setPasswordsignup] = useState("");
@@ -29,7 +30,19 @@ function Header() {
   const history = useHistory();
   const [userdetails, setUserdetails] = useState("");
   const { firebase } = useContext(FirebaseContext);
-
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("notifications")
+      .orderBy("createdAt")
+      .onSnapshot((querySnapshot) => {
+        const data = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setNotifications(data);
+      });
+  }, []);
   const handleSignup = (e) => {
     setLoading(true);
     e.preventDefault();
@@ -56,14 +69,18 @@ function Header() {
             ref.getDownloadURL().then((url) => {
               result.user.updateProfile({ displayName: username });
 
-              firebase.firestore().collection("users").doc(result.user.uid).set({
-                id: result.user.uid,
-                email: emailsignup,
-                username,
-                phone,
-                url,
-                createdAt: new Date().toDateString(),
-              });
+              firebase
+                .firestore()
+                .collection("users")
+                .doc(result.user.uid)
+                .set({
+                  id: result.user.uid,
+                  email: emailsignup,
+                  username,
+                  phone,
+                  url,
+                  createdAt: new Date().toDateString(),
+                });
               setSignupform(false);
               setLoading(false);
             });
@@ -133,6 +150,19 @@ function Header() {
       {children}
       &nbsp;
       <Arrow></Arrow>
+    </a>
+  ));
+  const NotifyToggle = React.forwardRef(({ children, onClick }, ref) => (
+    <a style={{textDecoration:"none"}}
+      href=""
+      ref={ref}
+      onClick={(e) => {
+        e.preventDefault();
+        onClick(e);
+      }}
+    >
+      {children}
+      &nbsp;
     </a>
   ));
   const CustomMenu = React.forwardRef(
@@ -208,7 +238,6 @@ function Header() {
                           d="M512 85.333c211.755 0 384 172.267 384 384 0 200.576-214.805 392.341-312.661 469.333v0h-142.656c-97.856-76.992-312.683-268.757-312.683-469.333 0-211.733 172.267-384 384-384zM512 170.667c-164.672 0-298.667 133.973-298.667 298.667 0 160.021 196.885 340.523 298.453 416.597 74.816-56.725 298.88-241.323 298.88-416.597 0-164.693-133.973-298.667-298.667-298.667zM512.006 298.66c94.101 0 170.667 76.565 170.667 170.667s-76.565 170.667-170.667 170.667c-94.101 0-170.667-76.565-170.667-170.667s76.565-170.667 170.667-170.667zM512.006 383.994c-47.061 0-85.333 38.272-85.333 85.333s38.272 85.333 85.333 85.333c47.061 0 85.333-38.272 85.333-85.333s-38.272-85.333-85.333-85.333z"
                         ></path>
                       </svg>
-                      asd
                     </div>
                   </div>
                 </Dropdown.Menu>
@@ -232,15 +261,37 @@ function Header() {
           <Arrow></Arrow>
         </div>
         <div className="chat">
-        <button style={{  all: "unset"} } type="button"  onClick={(e) => {
-              history.push({ pathname: "/chat"})
-              }} ><Chat ></Chat></button> 
+          <button
+            style={{ all: "unset" }}
+            type="button"
+            onClick={(e) => {
+              history.push({ pathname: "/chat" });
+            }}
+          >
+            <Chat></Chat>
+          </button>
           {/* {userDetails && <button type="button"  onClick={(e) => {
               history.push({ pathname: "/chat", user: userDetails ,send:user.uid})
               }} className="chatbutton"></button> */}
         </div>
         <div className="bell">
-          <Bell></Bell>
+          <Dropdown>
+            <Dropdown.Toggle as={NotifyToggle} id="dropdown-custom-components">
+            <Bell></Bell>
+
+              <Dropdown.Menu as={CustomMenu}>
+                <div className="dropdownnotify">
+                  <div className="notifydetails">
+                  {notifications.map((notification) => (
+        <li key={notification.id}>{notification.text}</li>
+      ))}
+                    
+                  </div>
+                
+                </div>
+              </Dropdown.Menu>
+            </Dropdown.Toggle>
+          </Dropdown>
         </div>
 
         <div className="loginPage">
@@ -278,9 +329,12 @@ function Header() {
                           {userdetails && (
                             <div className="Name">{userdetails.username}</div>
                           )}
-                          <span onClick={(e) => {
-              history.push({ pathname: "/editprofile"})
-              }}  className="viewedit">
+                          <span
+                            onClick={(e) => {
+                              history.push({ pathname: "/editprofile" });
+                            }}
+                            className="viewedit"
+                          >
                             <span>View and edit profile</span>
                           </span>
                         </div>
@@ -650,6 +704,7 @@ function Header() {
       ) : (
         ""
       )}
+   
     </div>
   );
 }

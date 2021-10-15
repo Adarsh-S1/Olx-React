@@ -7,47 +7,64 @@ import "./Chat.css";
 import { FirebaseContext } from "../../store/Context";
 function Chat() {
   const { firebase } = useContext(FirebaseContext);
-  // const  googleApplicationCredentials ="../Chat/olx-clone-44fe1-firebase-adminsdk-clmv7-7cb26e603b.json"
-  // const messaging = firebase.messaging()
-  // messaging.requestPermission().then(() => {
-  //   return messaging.getToken();
-  // }).then(token => {
-  //   console.log(token);
-  // }).catch(error => {
-  //   console.log(error);
-  // })
+  const [chatlist, setChatlist] = useState([])
   const [textvalue, setTextvalue] = useState("");
   const [messages, setMessages] = useState([]);
-  const location = useLocation()
+  const location = useLocation();
   TimeAgo.addDefaultLocale(en);
   const timeAgo = new TimeAgo("en-US");
   let chatter, userId;
   let postDetails = JSON.parse(localStorage.getItem("postDetails"));
   if (location.user) {
-    chatter=location.user
+    chatter = location.user;
     userId = location.send;
-    localStorage.setItem("chatter",JSON.stringify(chatter));
+    localStorage.setItem("chatter", JSON.stringify(chatter));
     localStorage.setItem("chatterId", location.send);
   } else {
-    chatter=JSON.parse(localStorage.getItem("chatter"));
+    chatter = JSON.parse(localStorage.getItem("chatter"));
     userId = localStorage.getItem("chatterId");
   }
   const handleSubmit = (e) => {
     e.preventDefault();
-      firebase.firestore().collection("messages").add({
-      createdAt:new Date(),
-      chatterId:chatter.id,
-      userId,
-      text: textvalue,
-      Id:userId+chatter.id
-      });
-    setTextvalue("")
-  };
-  console.log(userId+chatter.id,"  ",chatter.id+userId);
-  useEffect(() => {
     firebase
       .firestore()
-      .collection("messages").orderBy("createdAt").where('Id','in',[userId+chatter.id,chatter.id+userId])
+      .collection("messages")
+      .add({
+        createdAt: new Date(),
+        chatterId: chatter.id,
+        userId,
+        text: textvalue,
+        Id: userId + chatter.id,
+      });
+    firebase.firestore().collection("notifications").add({
+      createdAt: new Date(),
+      chatterId: chatter.id,
+      userId,
+      text: textvalue,
+    });
+    firebase
+    .firestore()
+    .collection("chatlist").where('Id','in',[userId+chatter.id,chatter.id+userId])
+      .onSnapshot((Snapshot) => {
+        console.log(Snapshot.docs.length);
+        if (Snapshot.docs.length == 0)
+        {
+          firebase.firestore().collection("chatlist").add({
+            createdAt: new Date(),
+            Id: userId + chatter.id,
+            image: chatter.url,
+            name:chatter.username
+          });
+        }
+    });
+    setTextvalue("");
+  };
+  useEffect(() => {
+    firebase.firestore().collection("chatlist")
+    firebase
+      .firestore()
+      .collection("messages")
+      .where("Id", "in", [userId + chatter.id, chatter.id + userId])
       .onSnapshot((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
@@ -92,7 +109,6 @@ function Chat() {
               </div>
               <div className="chatdetails">
                 <div className="name">{chatter.username}</div>
-                <div className="adtitle">{postDetails.name}</div>
                 <div className="lastmessage">
                   Ad sasssssssssssssssssssssssssssssssssstitle
                 </div>
@@ -111,22 +127,28 @@ function Chat() {
          </div> */}
             <div className="chatboxhead">
               <img className="imagechatboxhead" src={postDetails.url} alt="" />
-              <div className="chatboxname">{chatter.username} <p style={{fontWeight:300}}>{postDetails.name}</p></div>
-              
+              <div className="chatboxname">
+                {chatter.username}{" "}
+                <p style={{ fontWeight: 300 }}>{postDetails.name}</p>
+              </div>
             </div>
             {messages.map((message) => (
-             
-                <li  key={message.id}>{message.text}</li>
+              <li key={message.id}>{message.text}</li>
             ))}
 
             <form>
               <input
                 className="message"
                 value={textvalue}
-                onChange={(e) => { e.preventDefault(); setTextvalue(e.target.value)}}
+                onChange={(e) => {
+                  e.preventDefault();
+                  setTextvalue(e.target.value);
+                }}
                 placeholder="say something nice"
               />
-              <button hidden onClick={handleSubmit}>Send</button>
+              <button hidden onClick={handleSubmit}>
+                Send
+              </button>
             </form>
           </div>
         )}

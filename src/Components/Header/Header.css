@@ -519,3 +519,20 @@ form {
     display: none;
   }
 }
+.notifydetails {
+  margin:5px;
+  padding:5px;
+  width: 500px;
+  height: 110px;
+  overflow: auto;
+  text-align:justify;
+}
+.dropdownnotify {
+  right: 95px;
+  top: 27.7px;
+  width: 288px;
+  position: absolute;
+  background: #fff;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,.12),0 6px 6px 0 rgba(0,0,0,.24);
+  border-radius: 4px;
+}
