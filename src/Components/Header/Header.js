@@ -14,6 +14,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 function Header() {
   const { user } = useContext(AuthContext);
+  console.log(user);
   const [showform, setShowform] = useState(false);
   const [signupform, setSignupform] = useState(false);
   const [showError, setShowerror] = useState("");
